@@ -1745,3 +1745,104 @@ input, select, textarea {
 }
 
 
+/* --- ESTILOS PARA EL MENÚ FIJO SUPERIOR CON LOGOS --- */
+
+#fixed-menu {
+    position: fixed; 
+    top: 0;       
+    left: 0;
+    width: 100%;
+    z-index: 1000; 
+    background-color: rgba(25, 72, 105, 0.485); 
+    box-shadow: 0 2px 8px rgba(94, 152, 194, 0.264); 
+    padding: 0;
+    margin: 0;
+    
+    /* Contenedor principal usa Flexbox */
+    display: flex;
+    justify-content: space-between; /* Distribuye espacio entre las 3 zonas */
+    align-items: center; /* Centra verticalmente todos los elementos */
+    height: 100px; /* Alto fijo para el menú */
+}
+
+/* Estilos de los Logos Laterales */
+#fixed-menu .menu-logo {
+    display: flex;
+    align-items: center;
+    padding: 0 8rem;
+    height: 100%;
+    /* No se permite que las zonas de logos crezcan, solo el menú central */
+    flex-shrink: 0; 
+}
+
+#fixed-menu .menu-logo img {
+    /* Controla el tamaño de los logos (Ajustar si es necesario) */
+    height: 100px; 
+    width: auto;
+}
+
+/* Estilos para la Zona Central de Enlaces */
+#fixed-menu .menu-links {
+    flex-grow: 1; /* Permite que esta zona ocupe todo el espacio central */
+}
+
+#fixed-menu .menu-links ul {
+    list-style: none;
+    display: flex; 
+    justify-content: space-around; 
+    padding: 0;
+    margin: 0;
+}
+
+#fixed-menu .menu-links li {
+    text-align: center;
+    /* Se quita el border-right para limpiar la barra */
+    border-right: none; 
+}
+
+/* Estilos de los Enlaces y Texto */
+#fixed-menu .menu-links a {
+    display: block;
+    padding: 0.65rem 0.5rem; 
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: background-color 0.2s ease-in-out;
+}
+
+#fixed-menu .menu-links a:hover {
+    background-color: rgba(0, 255, 255, 0.1); 
+}
+
+/* Estilos para los iconos y etiquetas */
+#fixed-menu .icon {
+    display: block; 
+    margin-bottom: 0.15rem; 
+    font-size: 1.1rem;
+    color: #00ffff; 
+}
+
+/* Media Query: Oculta el texto en pantallas pequeñas */
+@media screen and (max-width: 736px) {
+    #fixed-menu {
+        height: 50px; /* Menú ligeramente más delgado en móvil */
+    }
+    #fixed-menu .menu-links a {
+        padding: 0.5rem 0.25rem;
+    }
+    #fixed-menu .label {
+        display: none; 
+    }
+    #fixed-menu .icon {
+        font-size: 1.5rem; 
+        margin-bottom: 0;
+    }
+    /* En móvil, haz los logos más pequeños o quita uno si el espacio es muy limitado */
+    #fixed-menu .menu-logo img {
+        height: 30px; 
+    }
+}
+
