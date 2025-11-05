@@ -72,6 +72,41 @@ input, select, textarea {
 	appearance: none;
 }
 
+
+
+
+
+/* ========================================================= */
+/* === INICIO DE MODIFICACIONES PARA RESPONSIVE MÓVIL (H1) === */
+/* ========================================================= */
+
+@media screen and (max-width: 736px) {
+    /* 1. Reduce el tamaño de la fuente del título principal (H1) en la cabecera */
+    #header .content .inner h1 {
+        font-size: 2.8em; /* Ajustado de 4.5em a 2.8em para que quepa en el móvil */
+        line-height: 1.2em; /* Añadir un poco de espacio si usa varias líneas (aunque debe ser una) */
+    }
+    
+    /* 2. Opcional: Reduce el margen inferior del H1 para ahorrar espacio */
+    #header .content .inner h1 {
+        margin: 0 0 0.4em 0;
+    }
+
+    /* 3. Opcional: Reducir el texto del subtítulo <p> */
+    #header .content .inner p {
+        font-size: 0.9em;
+    }
+    
+    /* 4. Opcional: Ajustar el padding del contenido interno para evitar que toque los bordes */
+    #header .content .inner {
+        padding: 0 0.5em; 
+    }
+}
+
+/* ======================================================= */
+/* === FIN DE MODIFICACIONES PARA RESPONSIVE MÓVIL (H1) === */
+/* ======================================================= */
+
 /* Basic */
 
 	@-ms-viewport {
@@ -1530,9 +1565,6 @@ input, select, textarea {
 
 		@media screen and (max-width: 736px) {
 
-			#main article {
-				padding: 3.5rem 2rem 0.5rem 2rem ;
-			}
 
 				#main article .close:before {
 					top: 0.875rem;
@@ -1544,13 +1576,10 @@ input, select, textarea {
 
 		}
 
-		@media screen and (max-width: 480px) {
+		
+			
 
-			#main article {
-				padding: 3rem 1.5rem 0.5rem 1.5rem ;
-			}
-
-		}
+		
 
 /* Footer */
 
@@ -1563,6 +1592,10 @@ input, select, textarea {
 		max-width: 100%;
 		margin-top: 2rem;
 		text-align: center;
+
+		position: relative; 
+        z-index: 10;
+	
 	}
 
 		#footer .copyright {
