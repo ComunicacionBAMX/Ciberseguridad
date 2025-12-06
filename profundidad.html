@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Análisis Profundo - Ciberseguridad</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="icon" type="image/png" href="logoico.png">
+        
+        <style>
+            #main article.standalone { 
+                opacity: 1 !important; 
+                transform: none !important; 
+                display: block !important; 
+                margin: 0 auto; 
+            }
+            .back-btn { margin-bottom: 1rem; display: inline-block; font-size: 0.8rem; }
+        </style>
+	</head>
+	<body class="is-preload">
+
+        <nav id="fixed-menu">
+    <div class="menu-logo left">
+        <img src="LOGOS/3.png" alt="Logo Izquierda" />
+    </div>
+    <div class="menu-links">
+        <ul>
+            <li><a href="index.html"><i class="fa fa-home" ></i> INICIO</a></li>
+        </ul>
+    </div>
+    <div class="menu-logo right">
+        <img src="LOGOS/5.png" alt="Logo Derecha" />
+    </div>
+</nav>
+
+		<div id="bg"></div>
+
+		<div id="wrapper">
+
+            <header id="header" style="margin-top: 2rem; margin-bottom: 2rem;">
+                <div class="content">
+                    <div class="inner" style="padding: 1rem;">
+                        <h1>Conceptos Avanzados</h1>
+                        
+                    </div>
+                </div>
+            </header>
+
+            <div id="main">
+                <article class="standalone active article-wide">
+                    
+                    <a href="index.html" class="back-btn icon fa-arrow-left"> Volver al Inicio</a>
+
+                    <div class="fortinet-layout">
+                        
+                        <aside class="fortinet-sidebar">
+                            <h4>En esta página</h4>
+                            <ul>
+                                <li><a href="#seccion1">¿Qué es la Seguridad de Red?</a></li>
+                                <li><a href="#seccion2">Firewalls de Nueva Generación</a></li>
+                                <li><a href="#seccion3">Zero Trust Access</a></li>
+                                <li><a href="#seccion4">Seguridad en la Nube</a></li>
+                                <li><a href="#seccion5">Conclusiones</a></li>
+                            </ul>
+                            
+                            <br>
+                           
+                        </aside>
+
+                        <div class="fortinet-content">
+                            
+                            <span class="image main"><img src="images/ciber-advanced.jpg" alt="Conceptos Avanzados" /></span>
+
+                            <section id="seccion1">
+                                <h2>¿Qué es la Seguridad de Red?</h2>
+                                <p>La seguridad de red es un término amplio que abarca una multitud de tecnologías, dispositivos y procesos. En su forma más simple, es un conjunto de reglas y configuraciones diseñadas para proteger la integridad, confidencialidad y accesibilidad de las redes y datos informáticos utilizando tecnologías de software y hardware.</p>
+                                <p>Toda organización, independientemente de su tamaño, industria o infraestructura, requiere un grado de soluciones de seguridad de red para protegerla del panorama de amenazas cibernéticas en constante crecimiento.</p>
+                            </section>
+
+                            <section id="seccion2">
+                                <h3>Firewalls de Nueva Generación (NGFW)</h3>
+                                <p>Los firewalls tradicionales filtran el tráfico basándose en puertos y protocolos. Los NGFW van más allá, inspeccionando el tráfico a nivel de aplicación para bloquear amenazas modernas y complejas como malware avanzado y ataques a la capa de aplicación.</p>
+                                <blockquote>
+                                    "La visibilidad es la clave. No puedes proteger lo que no puedes ver."
+                                </blockquote>
+                            </section>
+
+                            <section id="seccion3">
+                                <h3>Zero Trust Access (ZTA)</h3>
+                                <p>El modelo de seguridad "Zero Trust" asume que ningún usuario o dispositivo, dentro o fuera de la red, debe ser confiado por defecto. Requiere verificación estricta de identidad para cada persona y dispositivo que intenta acceder a recursos en una red privada.</p>
+                                <ul>
+                                    <li>Autenticación continua.</li>
+                                    <li>Principio de menor privilegio.</li>
+                                    <li>Micro-segmentación de la red.</li>
+                                </ul>
+                            </section>
+                            
+                            <section id="seccion4">
+                                <h3>Seguridad en la Nube</h3>
+                                <p>A medida que las empresas migran hacia la nube, la seguridad debe adaptarse. No se trata solo de proteger los datos, sino de asegurar las aplicaciones y la infraestructura que las soporta, compartiendo la responsabilidad entre el proveedor de la nube y el cliente.</p>
+                            </section>
+
+                            <section id="seccion5">
+                                <h3>Conclusiones</h3>
+                                <p>La ciberseguridad moderna requiere un enfoque en capas. Implementar una sola solución no es suficiente; se requiere una estrategia integrada que abarque desde el usuario final hasta el núcleo de la red.</p>
+                            </section>
+
+                        </div>
+                    </div>
+                    </article>
+            </div>
+
+           <footer id="footer">
+                   
+						<p class="copyright">&copy; CIBERSEGURIDAD.  <a href="https://www.bapuebla.org.mx/" target="_blank">BAMX PUEBLA</a>.</p>
+				</footer>
+
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+        <script>
+            window.onload = function() { document.body.classList.remove('is-preload'); }
+            
+            // PEQUEÑO SCRIPT PARA DESPLAZAMIENTO SUAVE DENTRO DE LA PÁGINA
+            document.querySelectorAll('.fortinet-sidebar a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        </script>
+
+	</body>
+</html>
