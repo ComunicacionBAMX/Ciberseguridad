@@ -2032,48 +2032,38 @@ input, select, textarea {
 
 
 
-/* === EFECTO DE NIEVE GLOBAL === */
 
-/* Capa 1: Copos grandes y lentos */
+/* === EFECTO DE NIEVE GLOBAL (REPARADO) === */
+
 body::before, body::after {
-    content: "\2744\0020\2745\0020\2744\0020\2745\0020\2744"; 
-    color: rgba(255, 255, 255, 0.7);
+    content: "\2744\0020\2745\0020\2744\0020\2745\0020\2744\0020\2745\0020\2744\0020\2745"; 
+    color: #ffffff !important; /* Blanco puro */
     position: fixed;
     top: -50px;
     left: 0;
-    right: 0;
-    z-index: 10001; /* Por encima de todo */
-    font-size: 25px;
+    width: 100%;
+    z-index: 999999 !important; /* Por encima de cualquier capa del index */
+    font-size: 30px;
     pointer-events: none;
     white-space: nowrap;
-    animation: nieve_caida 12s linear infinite;
+    display: block !important;
+    text-shadow: 0 0 10px rgba(255,255,255,1);
+    animation: nieve_caida 10s linear infinite;
 }
 
-/* Capa 2: Copos pequeños y rápidos */
 body::after {
-    content: "\2745\0020\2744\0020\2745\0020\2744\0020\2745";
-    font-size: 15px;
-    left: 15%;
-    animation-duration: 18s;
+    left: -20%;
+    animation-duration: 15s;
     animation-delay: -5s;
-    opacity: 0.4;
+    font-size: 20px;
+    opacity: 0.6;
 }
 
-/* Animación de movimiento */
 @keyframes nieve_caida {
     0% {
-        transform: translateY(0) translateX(0) rotate(0deg);
-    }
-    25% {
-        transform: translateY(25vh) translateX(30px) rotate(90deg);
-    }
-    50% {
-        transform: translateY(50vh) translateX(-30px) rotate(180deg);
-    }
-    75% {
-        transform: translateY(75vh) translateX(30px) rotate(270deg);
+        transform: translateY(0vh) translateX(0) rotate(0deg);
     }
     100% {
-        transform: translateY(105vh) translateX(0) rotate(360deg);
+        transform: translateY(110vh) translateX(50px) rotate(360deg);
     }
 }
