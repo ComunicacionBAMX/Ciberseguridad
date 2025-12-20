@@ -398,7 +398,6 @@
 						$main._show(location.hash.substr(1), true);
 					});
 
-
 })(jQuery);
 
 
@@ -439,6 +438,5 @@ function createSnow() {
 
 // Iniciar cuando cargue la página
 window.addEventListener('DOMContentLoaded', createSnow);
-
 
 
