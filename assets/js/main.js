@@ -398,4 +398,47 @@
 						$main._show(location.hash.substr(1), true);
 					});
 
+
 })(jQuery);
+
+
+
+
+
+
+function createSnow() {
+    const snowContainer = document.createElement('div');
+    snowContainer.style.position = 'fixed';
+    snowContainer.style.top = '0';
+    snowContainer.style.left = '0';
+    snowContainer.style.pointerEvents = 'none';
+    snowContainer.style.zIndex = '9999';
+    document.body.appendChild(snowContainer);
+
+    const symbols = ['❄', '❅', '❆'];
+
+    setInterval(() => {
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        snowflake.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+        
+        // Posición y tamaño aleatorio
+        snowflake.style.left = Math.random() * 100 + 'vw';
+        snowflake.style.opacity = Math.random();
+        snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+        
+        // Velocidad aleatoria
+        const duration = Math.random() * 5 + 5;
+        snowflake.style.animationDuration = `${duration}s, 3s`;
+        
+        snowContainer.appendChild(snowflake);
+
+        // Eliminar copo después de la animación
+        setTimeout(() => {
+            snowflake.remove();
+        }, duration * 1000);
+    }, 200);
+}
+
+// Iniciar cuando cargue la página
+window.addEventListener('DOMContentLoaded', createSnow);
