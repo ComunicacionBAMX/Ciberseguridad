@@ -2028,53 +2028,43 @@ input, select, textarea {
     50% { transform: translateX(80px); }
 }
 
+/* === NIEVE NAVIDEÑA: SEPARADA Y SIN GIROS === */
 
-
-/* === EFECTO DE NIEVE PROFESIONAL (COPOS SEPARADOS) === */
-
-/* Contenedor invisible para no afectar el diseño */
 body::before, body::after {
-    content: "\2744"; /* Un solo copo por capa para control total */
+    content: "\2744"; /* Icono de copo */
     position: fixed;
-    top: -10vh;
-    color: #fff;
-    user-select: none;
+    top: -10%;
+    color: #ffffff;
     pointer-events: none;
     z-index: 999999;
-    animation: caida_nieve linear infinite;
-    text-shadow: 0 0 5px rgba(255,255,255,0.8);
+    font-size: 18px;
+    /* Sombras para crear muchos copos separados en una sola capa */
+    text-shadow: 
+        20vw 20vh #fff, 40vw 45vh #fff, 60vw 10vh #fff, 80vw 35vh #fff,
+        10vw 65vh #fff, 35vw 85vh #fff, 55vw 55vh #fff, 90vw 75vh #fff;
+    animation: caida_recta 8s linear infinite;
 }
 
-/* Copo 1 */
-body::before {
-    left: 10%;
-    font-size: 20px;
-    animation-duration: 10s;
-    text-shadow: 30vw 20vh #fff, 60vw 50vh #fff, 85vw 80vh #fff; /* Copos fantasma separados */
-}
-
-/* Copo 2 (con otros tiempos y posiciones) */
+/* Segunda capa para dar más densidad y diferente ritmo */
 body::after {
-    left: 25%;
+    content: "\2745";
     font-size: 14px;
-    animation-duration: 15s;
-    animation-delay: -5s;
-    opacity: 0.6;
-    text-shadow: 20vw 30vh #fff, 50vw 10vh #fff, 70vw 60vh #fff; /* Copos fantasma separados */
+    left: 5%;
+    opacity: 0.7;
+    animation-duration: 12s;
+    animation-delay: -4s;
+    text-shadow: 
+        15vw 15vh #fff, 45vw 35vh #fff, 65vw 75vh #fff, 85vw 15vh #fff,
+        5vw 50vh #fff, 30vw 70vh #fff, 50vw 25vh #fff, 75vw 90vh #fff;
 }
 
-/* Agregamos una animación con balanceo para que no caigan en línea recta */
-@keyframes caida_nieve {
+@keyframes caida_recta {
     0% {
-        transform: translateY(0vh) translateX(0) rotate(0deg);
-    }
-    33% {
-        transform: translateY(33vh) translateX(30px) rotate(120deg);
-    }
-    66% {
-        transform: translateY(66vh) translateX(-30px) rotate(240deg);
+        top: -10%;
+        margin-left: 0;
     }
     100% {
-        transform: translateY(110vh) translateX(0) rotate(360deg);
+        top: 110%; /* Cae hasta el final */
+        margin-left: 20px; /* Movimiento lateral muy sutil sin rotar */
     }
 }
