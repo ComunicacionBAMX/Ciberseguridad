@@ -1997,3 +1997,51 @@ input, select, textarea {
 #header nav ul li {
     border-left: 0 !important;
 }
+
+
+/* === EFECTO DE NIEVE GLOBAL === */
+
+/* Capa 1: Copos grandes y lentos */
+body::before, body::after {
+    content: "\2744\0020\2745\0020\2744\0020\2745\0020\2744"; 
+    color: rgba(255, 255, 255, 0.7);
+    position: fixed;
+    top: -50px;
+    left: 0;
+    right: 0;
+    z-index: 10001; /* Por encima de todo */
+    font-size: 25px;
+    pointer-events: none;
+    white-space: nowrap;
+    animation: nieve_caida 12s linear infinite;
+}
+
+/* Capa 2: Copos pequeños y rápidos */
+body::after {
+    content: "\2745\0020\2744\0020\2745\0020\2744\0020\2745";
+    font-size: 15px;
+    left: 15%;
+    animation-duration: 18s;
+    animation-delay: -5s;
+    opacity: 0.4;
+}
+
+/* Animación de movimiento */
+@keyframes nieve_caida {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(25vh) translateX(30px) rotate(90deg);
+    }
+    50% {
+        transform: translateY(50vh) translateX(-30px) rotate(180deg);
+    }
+    75% {
+        transform: translateY(75vh) translateX(30px) rotate(270deg);
+    }
+    100% {
+        transform: translateY(105vh) translateX(0) rotate(360deg);
+    }
+}
+
