@@ -2030,40 +2030,51 @@ input, select, textarea {
 
 
 
+/* === EFECTO DE NIEVE PROFESIONAL (COPOS SEPARADOS) === */
 
-
-
-/* === EFECTO DE NIEVE GLOBAL (REPARADO) === */
-
+/* Contenedor invisible para no afectar el diseño */
 body::before, body::after {
-    content: "\2744\0020\2745\0020\2744\0020\2745\0020\2744\0020\2745\0020\2744\0020\2745"; 
-    color: #ffffff !important; /* Blanco puro */
+    content: "\2744"; /* Un solo copo por capa para control total */
     position: fixed;
-    top: -50px;
-    left: 0;
-    width: 100%;
-    z-index: 999999 !important; /* Por encima de cualquier capa del index */
-    font-size: 30px;
+    top: -10vh;
+    color: #fff;
+    user-select: none;
     pointer-events: none;
-    white-space: nowrap;
-    display: block !important;
-    text-shadow: 0 0 10px rgba(255,255,255,1);
-    animation: nieve_caida 10s linear infinite;
+    z-index: 999999;
+    animation: caida_nieve linear infinite;
+    text-shadow: 0 0 5px rgba(255,255,255,0.8);
 }
 
+/* Copo 1 */
+body::before {
+    left: 10%;
+    font-size: 20px;
+    animation-duration: 10s;
+    text-shadow: 30vw 20vh #fff, 60vw 50vh #fff, 85vw 80vh #fff; /* Copos fantasma separados */
+}
+
+/* Copo 2 (con otros tiempos y posiciones) */
 body::after {
-    left: -20%;
+    left: 25%;
+    font-size: 14px;
     animation-duration: 15s;
     animation-delay: -5s;
-    font-size: 20px;
     opacity: 0.6;
+    text-shadow: 20vw 30vh #fff, 50vw 10vh #fff, 70vw 60vh #fff; /* Copos fantasma separados */
 }
 
-@keyframes nieve_caida {
+/* Agregamos una animación con balanceo para que no caigan en línea recta */
+@keyframes caida_nieve {
     0% {
         transform: translateY(0vh) translateX(0) rotate(0deg);
     }
+    33% {
+        transform: translateY(33vh) translateX(30px) rotate(120deg);
+    }
+    66% {
+        transform: translateY(66vh) translateX(-30px) rotate(240deg);
+    }
     100% {
-        transform: translateY(110vh) translateX(50px) rotate(360deg);
+        transform: translateY(110vh) translateX(0) rotate(360deg);
     }
 }
