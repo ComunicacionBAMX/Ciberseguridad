@@ -8,25 +8,35 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<link rel="icon" type="image/png" href="logoico.png"> 
         <style>
-            /* Cabecera Superior Fija para evitar colisión de contenido */
+            /* Navegación Superior Corregida */
             #top-navigation {
                 position: fixed;
                 top: 0;
                 left: 0;
                 width: 100%;
-                height: 80px;
-                background: rgba(0, 0, 0, 0.9);
+                height: 100px; /* Aumentado para que quepan los logos sin cortes */
+                background: rgba(0, 0, 0, 0.95);
                 border-bottom: 2px solid #ff0000;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                padding: 0 2rem;
+                padding: 0 1.5rem;
                 z-index: 10001;
             }
 
+            .nav-logo-container {
+                display: flex;
+                align-items: center;
+                height: 100%;
+                width: 180px; /* Espacio reservado para el logo */
+            }
+
             .nav-logo {
-                width: 120px; /* Logos simétricos */
+                max-width: 100%;
+                max-height: 85%; /* Asegura que el logo no toque los bordes y no se corte */
+                width: auto;
                 height: auto;
+                object-fit: contain; /* Mantiene la proporción íntegra del logo */
             }
 
             .nav-links {
@@ -42,25 +52,26 @@
                 color: #ffffff !important;
                 text-decoration: none;
                 text-transform: uppercase;
-                font-size: 0.75rem;
-                letter-spacing: 1px;
+                font-size: 0.8rem;
+                letter-spacing: 2px;
                 font-weight: bold;
                 transition: color 0.3s;
             }
 
             .nav-links li a:hover { color: #ff0000 !important; }
 
-            /* Ajuste del Wrapper para que el contenido baje */
-            #wrapper { padding-top: 100px; }
+            /* Ajuste del Wrapper */
+            #wrapper { padding-top: 120px; }
 
-            /* Limpieza del header original para que no estorbe visualmente */
+            /* Limpieza del diseño original que estorba */
             #header .logo, #header:before, #header:after { display: none !important; }
             #header { border: none !important; background: none !important; margin-bottom: 2rem; }
             #header nav { display: none !important; }
 
-            @media screen and (max-width: 736px) {
-                .nav-links { display: none; } /* Ocultar links en móvil para no saturar */
-                #top-navigation { justify-content: space-around; }
+            @media screen and (max-width: 980px) {
+                #top-navigation { height: 80px; padding: 0 0.5rem; }
+                .nav-logo-container { width: 120px; }
+                .nav-links li a { font-size: 0.6rem; letter-spacing: 1px; }
             }
         </style>
 	</head>
@@ -68,14 +79,18 @@
 	<body class="is-preload">
 
         <nav id="top-navigation">
-            <img src="LOGOS/3.png" alt="BAMX Puebla" class="nav-logo" />
+            <div class="nav-logo-container">
+                <img src="LOGOS/3.png" alt="BAMX Puebla" class="nav-logo" />
+            </div>
             <ul class="nav-links">
                 <li><a href="#intro">¿Qué es?</a></li>
                 <li><a href="#amenazas">Amenazas</a></li>
-                <li><a href="profundidad.html">Conceptos</a></li>
+                <li><a href="profundidad.html">Avanzado</a></li>
                 <li><a href="tips.html">Tips</a></li>
             </ul>
-            <img src="LOGOS/5.png" alt="BAMX Tlaxcala" class="nav-logo" />
+            <div class="nav-logo-container" style="justify-content: flex-end;">
+                <img src="LOGOS/5.png" alt="BAMX Tlaxcala" class="nav-logo" />
+            </div>
         </nav>
 
 		<div id="bg"></div>
@@ -96,9 +111,9 @@
 								<h3 class="major">Objetivo Principal</h3>
 								<p>Garantizar tres cosas para tu información:</p>
 								<ul>
-									<li><b>Confidencialidad:</b> Que solo tú y las personas autorizadas puedan ver tus datos.</li>
-									<li><b>Integridad:</b> Que tus datos no sean modificados o borrados sin tu permiso.</li>
-									<li><b>Disponibilidad:</b> Que puedas acceder a tus sistemas y datos cuando los necesites.</li>
+									<li><b>Confidencialidad:</b> Que solo tú y las personas autorizadas puedan ver tus datos (como si fuera un sobre sellado).</li>
+									<li><b>Integridad:</b> Que tus datos no sean modificados o borrados sin tu permiso (que un documento no sea alterado).</li>
+									<li><b>Disponibilidad:</b> Que puedas acceder a tus sistemas y datos cuando los necesites (que tu cuenta bancaria esté accesible).</li>
 								</ul>
 						</article>
 
@@ -107,11 +122,12 @@
 								<p>Protege contra amenazas como:</p>
 								<ul>
 									<li><b>Virus y Malware:</b> Programas maliciosos que intentan dañar o tomar el control de tu dispositivo.</li>
-									<li><b>Hackers:</b> Personas que intentan entrar en tus sistemas para robar información.</li>
-									<li><b>Phishing:</b> Engaños para que reveles contraseñas u otra información sensible.</li>
+									<li><b>Hackers:</b> Personas que intentan entrar en tus sistemas para robar información o causar problemas.</li>
+									<li><b>Phishing:</b> Engaños (a menudo por correo electrónico) para que reveles contraseñas u otra información sensible.</li>
 								</ul>
 								<h3 class="major">Ingeniería Social</h3>
-								<p>Técnicas empleadas por los delincuentes <b>para engañar a los usuarios.</b> Se basan en la <b>manipulación psicológica.</b></p>
+								<p>La Ingeniería Social se define como el conjunto de técnicas empleadas por los delincuentes <b>para engañar a los usuarios.</b> Estas amenazas se basan en la <b>manipulación psicológica</b> en lugar de aprovechar vulnerabilidades técnicas.</p>
+								<p>El objetivo principal es lograr que la víctima les facilite datos de valor, como credenciales o información sensible.</p>
 						</article>
 				</div> 
                 
@@ -127,7 +143,7 @@
 		<script src="assets/js/main.js"></script>
 
         <script>
-            // Script para ocultar el header central al navegar
+            /* Mantiene el título central oculto cuando hay secciones abiertas */
             $(window).on('hashchange', function() {
                 if(window.location.hash && window.location.hash !== '#') {
                     $('#header').fadeOut(200);
@@ -139,3 +155,4 @@
         </script>
 	</body>
 </html>
+
