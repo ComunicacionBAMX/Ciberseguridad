@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE HTML>
 <html lang="es">
 	<head>
@@ -11,159 +8,111 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<link rel="icon" type="image/png" href="logoico.png"> 
         <style>
-            /* Menu lateral con scroll independiente */
-            #sidebar {
+            /* Cabecera Superior Fija para evitar colisión de contenido */
+            #top-navigation {
                 position: fixed;
                 top: 0;
                 left: 0;
-                height: 100vh;
-                width: 280px;
-                background: rgba(0, 0, 0, 0.95);
-                border-right: 1px solid rgba(255, 255, 255, 0.1);
-                z-index: 10000;
+                width: 100%;
+                height: 80px;
+                background: rgba(0, 0, 0, 0.9);
+                border-bottom: 2px solid #ff0000;
                 display: flex;
-                flex-direction: column;
-                overflow-y: auto; 
-                scrollbar-width: thin;
-                scrollbar-color: #ff0000 transparent;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 2rem;
+                z-index: 10001;
             }
 
-            .sidebar-header {
-                padding: 2rem 1rem;
-                text-align: center;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            }
-
-            .sidebar-header img {
-                width: 160px; /* Logos del mismo tamaño */
+            .nav-logo {
+                width: 120px; /* Logos simétricos */
                 height: auto;
-                display: block;
-                margin: 0 auto 1.5rem auto;
             }
 
-            .sidebar-links {
+            .nav-links {
+                display: flex;
                 list-style: none;
-                padding: 0;
                 margin: 0;
+                padding: 0;
             }
 
-            .sidebar-links li {
-                border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-            }
+            .nav-links li { margin: 0 1rem; }
 
-            .sidebar-links li a {
-                display: block;
-                padding: 1.5rem 2rem;
-                color: #ffffff;
+            .nav-links li a {
+                color: #ffffff !important;
                 text-decoration: none;
                 text-transform: uppercase;
-                letter-spacing: 2px;
-                font-size: 0.8rem;
-                transition: all 0.3s ease;
-            }
-
-            .sidebar-links li a:hover {
-                background: rgba(255, 0, 0, 0.2);
-                padding-left: 2.5rem;
-                color: #ff0000;
-            }
-
-            /* Estilos para los enlaces de herramientas */
-            .tool-link {
-                color: #ff0000;
-                text-decoration: none;
+                font-size: 0.75rem;
+                letter-spacing: 1px;
                 font-weight: bold;
                 transition: color 0.3s;
             }
 
-            .tool-link:hover {
-                color: #ffffff;
-                text-decoration: underline;
-            }
+            .nav-links li a:hover { color: #ff0000 !important; }
 
-            #wrapper {
-                margin-left: 280px;
-                width: calc(100% - 280px);
-                max-width: none;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
+            /* Ajuste del Wrapper para que el contenido baje */
+            #wrapper { padding-top: 100px; }
 
-            /* Eliminación de círculos y líneas del header */
-            #header {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                border: none !important;
-                background: none !important;
-            }
-
-            #header .logo, #header:before, #header:after {
-                display: none !important; 
-            }
-
+            /* Limpieza del header original para que no estorbe visualmente */
+            #header .logo, #header:before, #header:after { display: none !important; }
+            #header { border: none !important; background: none !important; margin-bottom: 2rem; }
             #header nav { display: none !important; }
 
-            @media screen and (max-width: 980px) {
-                #sidebar { position: relative; width: 100%; height: auto; }
-                #wrapper { margin-left: 0; width: 100%; }
+            @media screen and (max-width: 736px) {
+                .nav-links { display: none; } /* Ocultar links en móvil para no saturar */
+                #top-navigation { justify-content: space-around; }
             }
         </style>
 	</head>
 		
 	<body class="is-preload">
 
-        <nav id="sidebar">
-            <div class="sidebar-header">
-                <img src="LOGOS/3.png" alt="Logo BAMX Puebla" />
-                <img src="LOGOS/5.png" alt="Logo BAMX Tlaxcala" />
-            </div>
-            
-            <ul class="sidebar-links">
+        <nav id="top-navigation">
+            <img src="LOGOS/3.png" alt="BAMX Puebla" class="nav-logo" />
+            <ul class="nav-links">
                 <li><a href="#intro">¿Qué es?</a></li>
                 <li><a href="#amenazas">Amenazas</a></li>
-                <li><a href="profundidad.html">Conceptos Avanzados</a></li>
+                <li><a href="profundidad.html">Conceptos</a></li>
                 <li><a href="tips.html">Tips</a></li>
             </ul>
+            <img src="LOGOS/5.png" alt="BAMX Tlaxcala" class="nav-logo" />
         </nav>
 
 		<div id="bg"></div>
 
 		<div id="wrapper">
-
 				<header id="header">
 						<div class="content">
 							<div class="inner">
 								<h1>CIBERSEGURIDAD</h1>
-                                <p>PROTEGIENDO LA INFORMACIÓN DE BAMX</p>
 							</div>
 						</div>
 				</header> 
                 
                 <div id="main">
-
 						<article id="intro">
 								<h2 class="major">¿Qué es la Ciberseguridad?</h2>
-								<p>En palabras sencillas, la ciberseguridad es el conjunto de <b>prácticas, tecnologías y procesos</b> diseñados para proteger redes, dispositivos y datos.</p>
+								<p>En palabras sencillas, la ciberseguridad es el conjunto de <b>prácticas, tecnologías y procesos</b> que se diseñan para proteger las <b>redes, dispositivos, programas y datos de ataques, daños o accesos no autorizados.</b></p>
 								<h3 class="major">Objetivo Principal</h3>
+								<p>Garantizar tres cosas para tu información:</p>
 								<ul>
-									<li><b>Confidencialidad:</b> Solo personal autorizado accede.</li>
-									<li><b>Integridad:</b> Datos sin alteraciones.</li>
-									<li><b>Disponibilidad:</b> Acceso cuando se necesite.</li>
+									<li><b>Confidencialidad:</b> Que solo tú y las personas autorizadas puedan ver tus datos.</li>
+									<li><b>Integridad:</b> Que tus datos no sean modificados o borrados sin tu permiso.</li>
+									<li><b>Disponibilidad:</b> Que puedas acceder a tus sistemas y datos cuando los necesites.</li>
 								</ul>
 						</article>
 
 						<article id="amenazas">
 								<h2 class="major">¿De qué nos protege?</h2>
-								<p>Protege contra amenazas como Virus, Hackers y Phishing.</p>
-                                <h3 class="major">Ingeniería Social</h3>
-								<p>Técnicas empleadas para engañar a los usuarios mediante manipulación psicológica.</p>
+								<p>Protege contra amenazas como:</p>
+								<ul>
+									<li><b>Virus y Malware:</b> Programas maliciosos que intentan dañar o tomar el control de tu dispositivo.</li>
+									<li><b>Hackers:</b> Personas que intentan entrar en tus sistemas para robar información.</li>
+									<li><b>Phishing:</b> Engaños para que reveles contraseñas u otra información sensible.</li>
+								</ul>
+								<h3 class="major">Ingeniería Social</h3>
+								<p>Técnicas empleadas por los delincuentes <b>para engañar a los usuarios.</b> Se basan en la <b>manipulación psicológica.</b></p>
 						</article>
-
-                        
-						
-
 				</div> 
                 
                 <footer id="footer">
@@ -177,6 +126,16 @@
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
 
+        <script>
+            // Script para ocultar el header central al navegar
+            $(window).on('hashchange', function() {
+                if(window.location.hash && window.location.hash !== '#') {
+                    $('#header').fadeOut(200);
+                } else {
+                    $('#header').fadeIn(200);
+                }
+            });
+            if(window.location.hash) $('#header').hide();
+        </script>
 	</body>
 </html>
-
